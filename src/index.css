@@ -1,0 +1,55 @@
+:root {
+  --bg: #1b1810;
+  --surface: #242017;
+  --surface-raised: #2d281c;
+  --border: #3d3527;
+  --border-soft: #2f2a1e;
+  --text: #f2ecdd;
+  --text-muted: #a89d84;
+  --text-faint: #6f6652;
+  --accent: #e8a33d;
+  --accent-dim: #8a6a35;
+  --accent-cool: #5b9c8b;
+  --accent-cool-dim: #3d6459;
+  --accent-warn: #c1594a;
+  --radius: 3px;
+  --font-jp: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-jp);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% -10%, rgba(232, 163, 61, 0.06), transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(91, 156, 139, 0.05), transparent 45%);
+  background-attachment: fixed;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,305 @@
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 28px 16px 64px;
+  min-height: 100vh;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.wordmark {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.wordmark small {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ---------- Category tabs ---------- */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 14px;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex: 0 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.tab:hover {
+  border-color: var(--accent-dim);
+}
+
+.tab.active {
+  background: var(--surface-raised);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ---------- Status bar ---------- */
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+  padding: 0 2px 12px;
+  border-bottom: 1px solid var(--border-soft);
+  margin-bottom: 4px;
+}
+
+.status-bar .count {
+  color: var(--text-muted);
+}
+
+/* ---------- States: loading / error ---------- */
+
+.state-panel {
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.state-panel .state-title {
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.state-panel .state-detail {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--text-faint);
+}
+
+.retry-btn {
+  margin-top: 16px;
+  background: transparent;
+  border: 1px solid var(--accent-dim);
+  color: var(--accent);
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  border-color: var(--accent);
+}
+
+/* ---------- Coin row ---------- */
+
+.coin-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.coin-row {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.coin-row-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 2px;
+  cursor: pointer;
+}
+
+.rank {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text-faint);
+  width: 28px;
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.coin-row.rank-1 .rank,
+.coin-row.rank-2 .rank,
+.coin-row.rank-3 .rank {
+  color: var(--accent);
+}
+
+.coin-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background: var(--surface-raised);
+  object-fit: cover;
+}
+
+.coin-id {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.coin-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.coin-sub {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.change-pos {
+  color: var(--accent-cool);
+}
+
+.change-neg {
+  color: var(--accent-warn);
+}
+
+.coin-price {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: right;
+  flex: 0 0 auto;
+  min-width: 72px;
+}
+
+/* ---------- Score gauge ---------- */
+
+.gauge {
+  flex: 0 0 auto;
+  position: relative;
+  width: 46px;
+  height: 46px;
+}
+
+.gauge svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gauge-track {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 4;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.gauge-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* ---------- Expanded detail ---------- */
+
+.coin-detail {
+  padding: 0 2px 18px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.criterion {
+  display: grid;
+  grid-template-columns: 76px 1fr 32px;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.criterion-label {
+  color: var(--text-muted);
+}
+
+.criterion-track {
+  height: 5px;
+  background: var(--border-soft);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.criterion-fill {
+  height: 100%;
+  background: var(--accent-cool);
+  border-radius: 2px;
+}
+
+.criterion-score {
+  font-family: var(--font-mono);
+  color: var(--text-faint);
+  text-align: right;
+}
+
+.criterion-value {
+  font-family: var(--font-mono);
+  color: var(--text-faint);
+  font-size: 11px;
+  grid-column: 1 / span 3;
+  margin-top: -6px;
+}
